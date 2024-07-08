@@ -21,11 +21,17 @@ class MicroController extends GetxController {
             },
             body: jsonEncode(<String, dynamic>{
               "accountId": int.parse(accountId.value),
-              "amount": 444
+              "amount": amount.value
             }));
-
+        showConfirm.value = false;
+        // print("Check 1");
+        // print(response.statusCode);
         if (response.statusCode == 200) {
-          print(jsonDecode(response.body)["id"]);
+          // print(response.body);
+          // print("Check 2");
+          balance.value -= amount.value;
+          // print("Amount ${amount.value}");
+          // print("Balance ${balance.value}");
         } else {
           throw Exception('Failed to create data');
         }
@@ -48,7 +54,7 @@ class MicroController extends GetxController {
         // Decode JSON
         Map<String, dynamic> jsonData = jsonDecode(jsonString);
         name.value = jsonData['name'];
-        balance.value -= amount.value;
+
         print(jsonData);
       } else {
         print("ID : " + accountId.value.toString());

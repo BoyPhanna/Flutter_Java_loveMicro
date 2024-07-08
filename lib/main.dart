@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
       child: GetMaterialApp(
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
-          fontFamily: "fontGame",
+          fontFamily: "font1",
           colorScheme: ColorScheme.fromSeed(
             seedColor: Colors.deepPurple,
           ),

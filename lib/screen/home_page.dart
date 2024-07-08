@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:mobile_lm/controller/controller.dart';
+import 'package:mobile_lm/screen/info_page.dart';
 import 'package:mobile_lm/screen/microfinance_payment.dart';
 import 'package:mobile_lm/screen/scanner_screen.dart';
 import 'package:mobile_lm/wigets/menu_wiget.dart';
@@ -125,10 +126,16 @@ class _HomePageState extends State<HomePage> {
                           title: "លុយផឹកស្រា",
                         ),
                       ),
+                      ZoomTapAnimation(
+                        child: MenuWidget(
+                          image: "line-chart",
+                          title: "ភាគហ៊ុន",
+                        ),
+                      ),
                     ],
                   ),
                   SizedBox(
-                    height: 10.h,
+                    height: 20.h,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -141,11 +148,26 @@ class _HomePageState extends State<HomePage> {
                       ),
                       ZoomTapAnimation(
                         child: MenuWidget(
-                          image: "payment",
-                          title: "ផឹកស្រា",
+                          image: "shopping-cart",
+                          title: "ទិញឥវ៉ាន់",
+                        ),
+                      ),
+                      ZoomTapAnimation(
+                        child: MenuWidget(
+                          image: "computer",
+                          title: "កុំព្យូទ័រ",
                         ),
                       ),
                     ],
+                  ),
+                  SizedBox(
+                    height: 10.h,
+                  ),
+                  Image.asset(
+                    "assets/ceo.jpg",
+                    width: Get.width,
+                    height: 180.h,
+                    fit: BoxFit.fill,
                   ),
                 ],
               ),
@@ -176,7 +198,10 @@ class _HomePageState extends State<HomePage> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
-                    Icon(Icons.menu),
+                    Icon(
+                      Icons.menu,
+                      size: 40.h,
+                    ),
                     ZoomTapAnimation(
                       onTap: () => Get.to(() => ScannerScreen()),
                       child: Container(
@@ -198,7 +223,15 @@ class _HomePageState extends State<HomePage> {
                         ),
                       ),
                     ),
-                    Icon(Icons.call),
+                    ZoomTapAnimation(
+                      onTap: () => Get.to(
+                        () => InfomationPage(),
+                      ),
+                      child: Icon(
+                        Icons.info,
+                        size: 40.h,
+                      ),
+                    ),
                   ],
                 ),
               )),

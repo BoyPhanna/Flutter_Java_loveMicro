@@ -11,8 +11,8 @@ class MenuWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return FadeInRight(
       child: Container(
-        width: 150.h,
-        height: 150.h,
+        width: 80.h,
+        height: 80.h,
         decoration: BoxDecoration(
           gradient: LinearGradient(
               begin: Alignment.topCenter,
@@ -49,7 +49,7 @@ class MenuWidget extends StatelessWidget {
             ),
             child: Text(
               "${title}",
-              style: TextStyle(fontSize: 22.sp),
+              style: TextStyle(fontSize: 10.sp),
             ),
           ),
         ]),

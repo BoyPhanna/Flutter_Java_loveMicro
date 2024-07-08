@@ -8,6 +8,7 @@ import 'package:get/get_core/src/get_main.dart';
 import 'package:mobile_lm/controller/controller.dart';
 import 'package:mobile_lm/screen/scanner_screen.dart';
 import 'package:zoom_tap_animation/zoom_tap_animation.dart';
+import 'package:quickalert/quickalert.dart';
 
 class MicrofinancePaymentPage extends StatefulWidget {
   const MicrofinancePaymentPage({super.key});
@@ -349,7 +350,15 @@ class _MicrofinancePaymentPageState extends State<MicrofinancePaymentPage> {
                                       qrControlller.accountId.value = "";
                                       qrControlller.amount.value = 0;
                                       qrControlller.showConfirm.value = false;
-                                      Get.back();
+                                      QuickAlert.show(
+                                        context: context,
+                                        type: QuickAlertType.warning,
+                                        text: 'Cancel',
+                                        autoCloseDuration:
+                                            const Duration(seconds: 2),
+                                        showConfirmBtn: false,
+                                      );
+                                      // Get.back();
                                     },
                                     child: Container(
                                       width: 150.h,
@@ -388,7 +397,16 @@ class _MicrofinancePaymentPageState extends State<MicrofinancePaymentPage> {
                                           accountNumber.text;
                                       qrControlller.amount.value =
                                           int.parse(amount.text);
-                                      qrControlller.checkAccount();
+                                      qrControlller.pay();
+                                      QuickAlert.show(
+                                        context: context,
+                                        type: QuickAlertType.success,
+                                        text:
+                                            'Transaction Completed Successfully!',
+                                        autoCloseDuration:
+                                            const Duration(seconds: 2),
+                                        showConfirmBtn: false,
+                                      );
                                     },
                                     child: Container(
                                       width: 150.h,
